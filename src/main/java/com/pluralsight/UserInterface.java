@@ -42,6 +42,7 @@ public class UserInterface {
         System.out.println("Loaded dealership: " + dealership.getName());
     }
 
+    //displaying the main menu
     private void displayMenu() {
         System.out.println("++++++++++++++++++++++++\n    Dealership Menu   \n++++++++++++++++++++++++");
         System.out.println("1 - Find vehicles within a price range");
@@ -57,6 +58,7 @@ public class UserInterface {
         System.out.print("Choose an option: ");
     }
 
+    //displaying list of vehicles to the main.
     private void displayVehicles(List<Vehicle> vehicles) {
         if (vehicles == null || vehicles.isEmpty()) {
             System.out.println("No vehicles found.");
@@ -65,6 +67,7 @@ public class UserInterface {
         for (Vehicle v : vehicles) System.out.println(v);
     }
 
+    //search by price
     private void processVehiclesByPriceRequest() {
         double min = console.promptForDouble("Enter minimum price: ");
         double max = console.promptForDouble("Enter maximum price: ");
@@ -72,6 +75,7 @@ public class UserInterface {
         displayVehicles(filtered);
     }
 
+    //search by make and model
     private void processVehiclesByMakeModelRequest() {
         String make = console.promptForString("Enter make: ");
         String model = console.promptForString("Enter model: ");
@@ -79,6 +83,7 @@ public class UserInterface {
         displayVehicles(filtered);
     }
 
+    //search by year that the vehicle was made
     private void processVehiclesByYearRequest() {
         int min = console.promptForInt("Enter minimum year: ");
         int max = console.promptForInt("Enter maximum year: ");
@@ -86,12 +91,14 @@ public class UserInterface {
         displayVehicles(filtered);
     }
 
+    //search by colors of the vehicles
     private void processVehiclesByColorRequest() {
         String color = console.promptForString("Enter color: ");
         List<Vehicle> filtered = dealership.getVehiclesByColor(color);
         displayVehicles(filtered);
     }
 
+    //searching vehicle by mileage
     private void processVehiclesByMileageRequest() {
         int min = console.promptForInt("Enter minimum mileage: ");
         int max = console.promptForInt("Enter maximum mileage: ");
@@ -99,16 +106,20 @@ public class UserInterface {
         displayVehicles(filtered);
     }
 
+    //searching vehicle by type
     private void processVehiclesByTypeRequest() {
         String type = console.promptForString("Enter vehicle type (car, truck, SUV, van): ");
         List<Vehicle> filtered = dealership.getVehiclesByType(type);
         displayVehicles(filtered);
     }
 
+    //handles the user request to display all vehicles in the dealership inventory.
+    //retrieves all vehicles from the dealership and passes them to displayVehicles for output.
     private void processAllVehiclesRequest() {
         displayVehicles(dealership.getAllVehicles());
     }
 
+    //adding vehicle to the inventory
     private void processAddVehicleRequest() {
         int vin = console.promptForInt("Enter VIN: ");
         int year = console.promptForInt("Enter Year: ");
@@ -126,6 +137,7 @@ public class UserInterface {
         System.out.println("Vehicle added.");
     }
 
+    //removing a vehicle
     private void processRemoveVehicleRequest() {
         int vin = console.promptForInt("Enter VIN to remove: ");
         dealership.removeVehicle(vin);
