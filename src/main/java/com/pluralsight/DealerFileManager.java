@@ -52,14 +52,6 @@ class DealershipFileManager {
         }
     }
 
-    public void saveDealershipInfo(Dealership dealership) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("dealership_info.txt"))) {
-            writer.write(dealership.getName() + "|" + dealership.getAddress() + "|" + dealership.getPhone());
-            writer.newLine();
-        } catch (IOException e) {
-            System.out.println("Error saving dealership info: " + e.getMessage());
-        }
-    }
 
     public void saveInventory(List<Vehicle> vehicles) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("inventory.csv"))) {
