@@ -5,8 +5,9 @@ import java.util.List;
 
 public class DealershipFileManager {
 
+    //Loads dealership information from the dealershipInfo.txt file.
     public Dealership loadDealershipInfo() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("dealership_info.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("dealershipInfo.txt"))) {
             String line = reader.readLine();
             if (line != null) {
                 String[] parts = line.split("\\|");

@@ -4,10 +4,13 @@ import java.util.List;
 
 public class UserInterface {
 
+    //entry point to start the user interface.
+    //loads dealership info and inventory, then shows the menu until user quits.
     private Dealership dealership;
     private DealershipFileManager fileManager = new DealershipFileManager();
     private Console console = new Console();
 
+    //displays the main menu options to the user.
     public void display() {
         init();
 
@@ -32,6 +35,7 @@ public class UserInterface {
         } while (choice != 99);
     }
 
+    //loads dealership info and inventory from file.
     private void init() {
         dealership = fileManager.loadDealershipInfo();
         if (dealership == null) {

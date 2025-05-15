@@ -10,6 +10,7 @@ public class Console {
         scanner = new Scanner(System.in);
     }
 
+    //Prompts the user for an integer input meaning whole number
     public int promptForInt(String prompt) {
         while (true) {
             System.out.print(prompt);
@@ -22,6 +23,7 @@ public class Console {
         }
     }
 
+    //Prompts the user for a double input meaning number
     public double promptForDouble(String prompt) {
         while (true) {
             System.out.print(prompt);
@@ -33,6 +35,8 @@ public class Console {
             }
         }
     }
+
+    //Prompts the user for a string input.
 
     public String promptForString(String prompt) {
         System.out.print(prompt);
