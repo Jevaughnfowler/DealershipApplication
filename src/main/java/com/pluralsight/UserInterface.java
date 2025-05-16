@@ -37,12 +37,11 @@ public class UserInterface {
 
     //loads dealership info and inventory from file.
     private void init() {
-        dealership = fileManager.loadDealershipInfo();
+        dealership = fileManager.getDealership();
         if (dealership == null) {
             System.out.println("Dealership loading failed: null returned");
             return;
         }
-        fileManager.loadInventory(dealership);
         System.out.println("Loaded dealership: " + dealership.getName());
     }
 
@@ -136,7 +135,7 @@ public class UserInterface {
 
         Vehicle vehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
         dealership.addVehicle(vehicle);
-        fileManager.saveInventory(dealership.getAllVehicles());
+        fileManager.saveInventory(dealership);
 
         System.out.println("Vehicle added.");
     }
@@ -145,7 +144,7 @@ public class UserInterface {
     private void processRemoveVehicleRequest() {
         int vin = console.promptForInt("Enter VIN to remove: ");
         dealership.removeVehicle(vin);
-        fileManager.saveInventory(dealership.getAllVehicles());
+        fileManager.saveInventory(dealership);
 
         System.out.println("Vehicle removed if it existed.");
     }
